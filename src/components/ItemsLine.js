@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const ItemsLine = ({ tasks, getItem }) => {
 	// const [deleteItem, setDeleteItem] = useState(false);
-	const [checkItem, setCheckItem] = useState(false);
+	const [checkItem, setCheckItem] = useState(tasks.checked);
 
 	const handleDelete = async () => {
 		const url = 'https://site--to-do-list--gsmxcbzt8tzm.code.run/delete-task/' + tasks._id;
@@ -13,15 +13,20 @@ const ItemsLine = ({ tasks, getItem }) => {
 		return getItem(true);
 		// return setDeleteItem(true);
 	};
-	const handleCheckItems = () => {
-		return setCheckItem(!checkItem);
+	const handleCheckItems = async () => {
+		const newState = !checkItem;
+		setCheckItem(!checkItem);
+		const url = `https://site--to-do-list--gsmxcbzt8tzm.code.run/task-checked/${tasks._id}/${newState}`;
+		console.log(url);
+		const result = await axios.post(url);
+		return console.log(result.data);
 	};
 
 	return (
 		<>
 			<section className="line-items">
 				<div className="checkbox-wrapper">
-					<input className={`checkbox`} onClick={handleCheckItems} type="checkbox" />
+					<input className={`checkbox`} onClick={handleCheckItems} type="checkbox" defaultChecked={checkItem} />
 				</div>
 				<div id={tasks._id} className={checkItem ? 'task-done' : ''}>
 					{tasks.task}

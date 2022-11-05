@@ -6,6 +6,7 @@ const AddItem = ({ refresh, value }) => {
 
 	const sendItem = async (event) => {
 		refresh(!value);
+		// const url = 'https://site--to-do-list--gsmxcbzt8tzm.code.run/task';
 		const url = 'https://site--to-do-list--gsmxcbzt8tzm.code.run/task';
 		await axios.post(url, { task: item });
 
