@@ -1,38 +1,105 @@
-.App {
-  text-align: center;
+/* body{
+  box-sizing: content-box;
+} */
+
+header{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 60px;
+  height: 193px;
+  font-size: 48px;
+  gap: 40px;
+  border-bottom: 1px solid #E5E5E5;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.add-items{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  width: 500px;
+  margin: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.add-items form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 50px;
+  width: 100%;
+  height: 50px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.add-items form input{
+  width: 80%;
+  height: 100%;
+  background-color: #F2F7FD;
+  border: 1px solid #5C48D3;
+  border-radius: 10px;
+  font-size: 24px;
+  padding-left: 10px;
+}
+.add-items form button{
+  width: 130px;
+  height: 100%;
+  font-size: 22px;
+  background: #5C48D3;
+  color: white;
+  border-radius: 10px;
+  font-weight: 400;
+
+}
+
+.tasks-container{
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin:  50px auto;
+  max-width: 500px;
+  gap: 20px;
+
 }
 
-.App-link {
-  color: #61dafb;
+.line-items{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* margin: auto; */
+  width: 100%;
+  /* gap: 20px; */
+  font-size: 30px;
+  min-height: 30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.line-items div{
+  display: block;
+  word-wrap: break-word;
+  max-width: 80%;
+
+}
+
+.line-items button{
+  margin-left: auto;
+  border: none;
+  background-color: white;
+}
+.line-items .checkbox{
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+}
+
+.checkbox-wrapper{
+  margin-right: 20px;
+}
+
+.task-done{
+  text-decoration: line-through;
+}
+
+.add-items form button:hover, .line-items .checkbox:hover, .line-items button:hover {
+  cursor: pointer;
 }
