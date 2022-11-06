@@ -1,4 +1,8 @@
 const Header = () => {
+	const selectBody = document.querySelector('body');
+	const handleDarkMode = () => {
+		selectBody.classList.toggle('dark-mode');
+	};
 	return (
 		<>
 			<header>
@@ -13,6 +17,8 @@ const Header = () => {
 				<div>
 					<h1>Todo List</h1>
 				</div>
+
+				<button onClick={handleDarkMode}>Darkmode</button>
 			</header>
 		</>
 	);

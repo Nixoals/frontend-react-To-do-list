@@ -6,11 +6,21 @@ header{
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding-left: 60px;
+  margin: auto 24px;
   height: 193px;
   font-size: 48px;
   gap: 40px;
   border-bottom: 1px solid #E5E5E5;
+}
+header button{
+  width: 130px;
+  height: 40px;
+  font-size: 22px;
+  background: #5C48D3;
+  color: white;
+  border-radius: 10px;
+  font-weight: 400;
+  margin-left: auto;
 }
 
 .add-items{
@@ -18,8 +28,9 @@ header{
   justify-content: center;
   align-items: center;
   max-width: 100%;
-  width: 500px;
+  width: 524px;
   margin: auto;
+  padding: 0 24px;
 }
 
 .add-items form{
@@ -58,8 +69,10 @@ header{
   justify-content: center;
   align-items: center;
   margin:  50px auto;
-  max-width: 500px;
+  padding: 0 24px;
+  max-width: 524px;
   gap: 20px;
+  
 
 }
 
@@ -84,7 +97,7 @@ header{
 .line-items button{
   margin-left: auto;
   border: none;
-  background-color: white;
+  background-color: transparent;
 }
 .line-items .checkbox{
   width: 30px;
@@ -102,4 +115,10 @@ header{
 
 .add-items form button:hover, .line-items .checkbox:hover, .line-items button:hover {
   cursor: pointer;
+}
+
+.dark-mode {
+  color: white;
+  background-color: black;
+  transition: all 0.5 ease;
 }
