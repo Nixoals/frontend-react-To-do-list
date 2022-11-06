@@ -5,12 +5,11 @@ const AddItem = ({ refresh, value }) => {
 	const [item, setItem] = useState('');
 
 	const sendItem = async (event) => {
-		refresh(!value);
-		// const url = 'https://site--to-do-list--gsmxcbzt8tzm.code.run/task';
+		const newState = !value;
 		const url = 'https://site--to-do-list--gsmxcbzt8tzm.code.run/task';
-		await axios.post(url, { task: item });
-
-		return refresh(!value);
+		// const url = 'http://localhost:8080/task';
+		await axios.post(url, { task: item, checked: false });
+		return refresh(newState);
 	};
 
 	return (
@@ -18,8 +17,9 @@ const AddItem = ({ refresh, value }) => {
 			<section className="add-items">
 				<form
 					onSubmit={(event) => {
-						sendItem();
+						setItem('');
 						event.preventDefault();
+						sendItem();
 					}}
 				>
 					<input

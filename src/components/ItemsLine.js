@@ -1,34 +1,29 @@
-import { useState } from 'react';
-
 import axios from 'axios';
 
 const ItemsLine = ({ tasks, getItem }) => {
-	// const [deleteItem, setDeleteItem] = useState(false);
-	const [checkItem, setCheckItem] = useState(tasks.checked);
-
+	//Delete Item from the Database
 	const handleDelete = async () => {
 		const url = 'https://site--to-do-list--gsmxcbzt8tzm.code.run/delete-task/' + tasks._id;
+		// const url = 'http://localhost:8080/delete-task/' + tasks._id;
 		await axios.delete(url);
-		console.log(`task ${tasks._id} has been deleted`);
 		return getItem(true);
-		// return setDeleteItem(true);
 	};
+	//change status on the Database and rerender App component
 	const handleCheckItems = async () => {
-		const newState = !checkItem;
-		setCheckItem(!checkItem);
+		const newState = !tasks.checked;
 		const url = `https://site--to-do-list--gsmxcbzt8tzm.code.run/task-checked/${tasks._id}/${newState}`;
-		console.log(url);
-		const result = await axios.post(url);
-		return console.log(result.data);
+		// const url = `http://localhost:8080/task-checked/${tasks._id}/${newState}`;
+		await axios.post(url);
+		return getItem(true);
 	};
-
 	return (
 		<>
 			<section className="line-items">
 				<div className="checkbox-wrapper">
-					<input className={`checkbox`} onClick={handleCheckItems} type="checkbox" defaultChecked={checkItem} />
+					{/* onChange attribute instead of onClick */}
+					<input className={`checkbox`} onChange={handleCheckItems} type="checkbox" checked={tasks.checked} />
 				</div>
-				<div id={tasks._id} className={checkItem ? 'task-done' : ''}>
+				<div id={tasks._id} className={tasks.checked ? 'task-done' : ''}>
 					{tasks.task}
 				</div>
 				<button className="delete" onClick={handleDelete}>
