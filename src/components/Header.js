@@ -1,7 +1,16 @@
+import { useState } from 'react';
+
 const Header = () => {
+	const [mode, setMode] = useState('DarkMode');
 	const selectBody = document.querySelector('body');
 	const handleDarkMode = () => {
-		selectBody.classList.toggle('dark-mode');
+		if (mode === 'DarkMode') {
+			setMode('LightMode');
+			selectBody.classList.toggle('dark-mode');
+		} else {
+			setMode('DarkMode');
+			selectBody.classList.toggle('dark-mode');
+		}
 	};
 	return (
 		<>
@@ -15,10 +24,10 @@ const Header = () => {
 					</svg>
 				</div>
 				<div>
-					<h1>Todo List</h1>
+					<h1 className="title-header">Todo List</h1>
 				</div>
 
-				<button onClick={handleDarkMode}>Darkmode</button>
+				<button onClick={handleDarkMode}>{mode}</button>
 			</header>
 		</>
 	);
